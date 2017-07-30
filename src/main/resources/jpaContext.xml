@@ -12,7 +12,10 @@
 
 
     <context:annotation-config></context:annotation-config>
-    <bean id="beanPostProcessor" class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+    <context:component-scan base-package="com.pluralsight.repository"/>
+    <context:component-scan base-package="com.pluralsight.model"/>
+    <context:component-scan base-package="com.pluralsight.service"/>
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 
     <!--for development this kind of datasource definition is fine.
     For production however, this isnt fine. Use JNDI/DBCP datasource-->
