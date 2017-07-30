@@ -8,6 +8,15 @@
     <context:annotation-config></context:annotation-config>
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 
+    <!--for development this kind of datasource definition is fine.
+    For production however, this isnt fine. Use JNDI/DBCP datasource-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="username" value="root"/>
+        <property name="password" value="3092"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/fitnesstracker?autoReconnect=true"/>
+    </bean>
+
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="persistenceUnitName" value="punit"/>
         <property name="dataSource" ref="dataSource"/>
@@ -16,6 +25,7 @@
                 <property name="showSql" value="true"/>
             </bean>
         </property>
+        <!--vendor eg. hibernate, eclipselink etc specific jpa property START-->
         <property name="jpaPropertyMap">
             <map>
                 <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
@@ -23,6 +33,7 @@
                 <entry key="hibernate.format_sql" value="true"/>
             </map>
         </property>
+        <!--vendor eg. hibernate, eclipselink etc specific jpa property END-->
     </bean>
 
     <!--wrapper around entityManager-->
