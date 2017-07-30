@@ -12,9 +12,7 @@
 
 
     <context:annotation-config></context:annotation-config>
-    <bean id="beanPostProcessor" class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor">
-
-    </bean>
+    <bean id="beanPostProcessor" class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 
     <!--for development this kind of datasource definition is fine.
     For production however, this isnt fine. Use JNDI/DBCP datasource-->
@@ -37,7 +35,7 @@
         <property name="jpaPropertyMap">
             <map>
                 <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
-                <entry key="hibernate.hbm2ddl.auto" value="create"/>
+                <entry key="hibernate.hbm2ddl.auto" value="create-drop"/>
                 <entry key="hibernate.format_sql" value="true"/>
             </map>
         </property>
