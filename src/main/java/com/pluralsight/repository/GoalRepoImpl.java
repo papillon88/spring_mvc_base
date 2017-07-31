@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.List;
 
 /**
  * Created by papillon on 7/30/2017.
@@ -22,5 +24,11 @@ public class GoalRepoImpl implements GoalRepo {
         em.flush();
         System.out.println("After persist");
         return goal;
+    }
+
+    public List<Goal> findAllGoals() {
+        Query query = em.createQuery("Select g from Goal g");
+        List goals = query.getResultList();
+        return goals;
     }
 }

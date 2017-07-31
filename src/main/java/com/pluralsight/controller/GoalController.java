@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.pluralsight.model.Goal;
 
+import java.util.List;
+
 @Controller
 @SessionAttributes("goal")
 public class GoalController {
@@ -44,6 +46,13 @@ public class GoalController {
 		}
 		
 		return "redirect:index.jsp";
+	}
+
+	@RequestMapping(value = "getgoals", method = RequestMethod.GET)
+	public String getAllGoals(Model model){
+		List<Goal> goals = goalService.findAllGoals();
+		model.addAttribute("goals",goals);
+		return "getgoals";
 	}
 	
 }

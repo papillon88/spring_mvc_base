@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by papillon on 7/30/2017.
  */
@@ -18,5 +20,9 @@ public class GoalServiceImpl implements GoalService {
     @Transactional
         public Goal save(Goal goal) {
             return goalRepo.save(goal);
+    }
+
+    public List<Goal> findAllGoals() {
+        return goalRepo.findAllGoals();
     }
 }
