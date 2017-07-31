@@ -1,6 +1,7 @@
 package com.pluralsight.repository;
 
 import com.pluralsight.model.Goal;
+import com.pluralsight.model.GoalReport;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,5 +31,11 @@ public class GoalRepoImpl implements GoalRepo {
         Query query = em.createQuery("Select g from Goal g");
         List goals = query.getResultList();
         return goals;
+    }
+
+    public List<GoalReport> findGoalReports() {
+        Query query = em.createQuery("Select new com.pluralsight.model.GoalReport" +
+                "(g.minutes,e.minutes,e.activity) from Goal g,Exercise e where g.id = e.goal.id");
+        return query.getResultList();
     }
 }
