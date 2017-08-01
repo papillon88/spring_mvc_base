@@ -24,7 +24,7 @@ public class GoalServiceImpl implements GoalService {
     }
 
     public List<Goal> findAllGoals() {
-        return goalRepo.findAllGoals();
+        return goalRepo.findAll();
     }
 
     public List<GoalReport> findGoalReports() {

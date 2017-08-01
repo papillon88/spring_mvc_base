@@ -14,6 +14,7 @@ import java.util.List;
 /**
  * Created by papillon on 7/30/2017.
  */
+/*
 @Repository("goalrepo")
 public class GoalRepoImpl implements GoalRepo {
 
@@ -29,16 +30,21 @@ public class GoalRepoImpl implements GoalRepo {
     }
 
     public List<Goal> findAllGoals() {
-        /*Query query = em.createQuery("Select g from Goal g");*/
+        */
+/*Query query = em.createQuery("Select g from Goal g");*//*
+
         TypedQuery<Goal> query = em.createNamedQuery(Goal.FIND_ALL_GOALS,Goal.class);
         List goals = query.getResultList();
         return goals;
     }
 
     public List<GoalReport> findGoalReports() {
-        /*Query query = em.createQuery("Select new com.pluralsight.model.GoalReport" +
-                "(g.minutes,e.minutes,e.activity) from Goal g,Exercise e where g.id = e.goal.id");*/
+        */
+/*Query query = em.createQuery("Select new com.pluralsight.model.GoalReport" +
+                "(g.minutes,e.minutes,e.activity) from Goal g,Exercise e where g.id = e.goal.id");*//*
+
         TypedQuery<GoalReport> query = em.createNamedQuery(Goal.FIND_GOAL_REPORTS,GoalReport.class);
         return query.getResultList();
     }
 }
+*/

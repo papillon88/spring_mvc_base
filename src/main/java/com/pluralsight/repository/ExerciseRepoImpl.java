@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 /**
  * Created by papillon on 7/31/2017.
  */
-@Repository("exerciserepo")
+/*@Repository("exerciserepo")
 public class ExerciseRepoImpl implements ExerciseRepo {
 
     @PersistenceContext
@@ -21,4 +21,4 @@ public class ExerciseRepoImpl implements ExerciseRepo {
         em.flush();
         return exercise;
     }
-}
+}*/
